@@ -1,62 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<div>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Graphic Designer Portfolio</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <section class="container">
-            <header class="site-header">
-                <nav class="navbar">
-                    <ul>
-                        <img src="images/love.jpg" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-    
-            <main class="content">
-                <section id="about" class="about-section">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Designer Portfolio</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- JS -->
+    <script src="js/script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="email.js"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fonts -->
+    <!-- Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <header class="site-header">
+            <nav class="navbar">
+                <ul>
+                    <li><img src="images/love.jpg" alt="Avatar Logo" href="#logo"></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>                
+        </header>
+
+        <!-- Slideshow Section -->
+        <section class="slideshow">
+            <div class="slides">
+                <img src="images/love.jpg" alt="Slide 1">
+                <img src="images/love.jpg" alt="Slide 2">
+                <img src="images/love.jpg" alt="Slide 3">
+            </div>
+        </section>
+
+        <main class="content">
+            <section id="about" class="about-section">
+                <section class="text-container">
                     <h1>About Me</h1>
-                    <p>Hi, I'm a graphic designer passionate about creating stunning visuals and designs that captivate audiences.</p>
+                    <p>Hi, I'm a graphic designer passionate about creating stunning visuals and designs that captivate audiences. I specialize in crafting unique digital experiences that speak to the soul. With a keen eye for detail and a love for modern trends, I bring creativity and innovation to every project I take on. Whether it's branding, web design, or marketing materials, I thrive on transforming ideas into visually appealing and functional designs that leave a lasting impression. Let’s work together and create something amazing!</p>
                 </section>
-    
-                <section id="portfolio" class="portfolio-section">
-                    <h2>Portfolio</h2>
-                    <section class="portfolio-gallery">
-                        <!-- Placeholder for projects -->
-                        <section class="portfolio-item">Project 1</section>
-                        <section class="portfolio-item">Project 2</section>
-                        <section class="portfolio-item">Project 3</section>
+                <img src="images/love.jpg" alt="designer">
+            </section>
+
+            <section id="portfolio" class="portfolio-section">
+                <h1>My Portfolio</h1>
+                <p>Explore a selection of my projects that showcase my creativity and expertise in graphic design.</p>
+                <section class="portfolio-gallery">
+                    <section class="portfolio-item">
+                        <img src="images/love.jpg" alt="Project 1">
+                        <h2>Brand Identity</h2>
+                        <p>Created a cohesive brand identity for a tech startup, including logo design, typography, and color schemes.</p>
+                    </section>
+                    <section class="portfolio-item">
+                        <img src="images/love.jpg" alt="Project 2">
+                        <h2>Web Design</h2>
+                        <p>Designed a modern and responsive website for a non-profit organization to increase engagement.</p>
+                    </section>
+                    <section class="portfolio-item">
+                        <img src="images/love.jpg" alt="Project 3">
+                        <h2>Marketing Campaign</h2>
+                        <p>Developed visual assets for a social media campaign that achieved a 30% increase in user engagement.</p>
+                    </section>
+                    <section class="portfolio-item">
+                        <img src="images/love.jpg" alt="Project 4">
+                        <h2>Packaging Design</h2>
+                        <p>Designed eco-friendly packaging for a skincare brand, focusing on sustainability and aesthetics.</p>
                     </section>
                 </section>
-    
-                <section id="contact" class="contact-section">
-                    <h2>Contact Me</h2>
-                    <form>
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-    
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-    
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-    
-                        <button type="submit">Send</button>
-                    </form>
-                </section>
-            </main>
-    
-            <footer class="site-footer">
+            </section>
+            
+            <section id="contact" class="contact-section">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out to me for any inquiries or collaboration opportunities. I'd love to hear from you!</p>
+                <form id="contact-form">
+                    <section class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                    </section>
+                    <section class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                    </section>
+                    <section class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                    </section>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <section class="footer-content">
                 <p>&copy; 2024 Graphic Designer. All rights reserved.</p>
-            </footer>
-        </section>
-    </body>
-</div>
-</html> 
+                <section class="social-media">
+                    <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </section>
+            </section>
+        </footer>
+        
+    </div>
+</body>
+</html>

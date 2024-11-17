@@ -1,9 +1,3 @@
-div{
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
-}
-
 /* General Reset */
 * {
     margin: 0;
@@ -11,30 +5,61 @@ div{
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+/* Make sure html and body have no margin or padding */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
+/* Grid Layout for the div */
+div {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Body Styles */
+body {
+    /* font-family: "Space Mono", monospace; */
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    color: #333;
+    background-color: yellowgreen; /* This will now only cover the body area */
+}
 
 /* Header */
 header {
-    background-color: #222;
-    color: #fff;
+    background-color: #fbfafa;
+    color: #141414;
     padding: 1rem 2rem;
 }
 
+/* Navbar Styling */
 header nav ul {
-    list-style: none;
     display: flex;
-    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align navbar items to the left */
 }
 
+header nav li {
+    margin-right: 2rem; /* Space between items */
+}
+
+/* Logo Styling */
+header nav img {
+    width: 15dvh; /* Make the logo bigger based on viewport height */
+    height: auto;
+    margin-right: 20px; /* Space between logo and menu items */
+}
+
+/* Link Styling */
 header nav a {
     text-decoration: none;
-    color: #fff;
+    color: #141414;
     font-weight: bold;
 }
 
@@ -42,10 +67,11 @@ header nav a:hover {
     color: #f9a825;
 }
 
+
 /* Main Content */
 main {
-    padding: 2rem;
-    background-color: #fff;
+    padding: 0rem;
+    background-color: white;
 }
 
 section {
@@ -61,49 +87,266 @@ p {
     margin-bottom: 1rem;
 }
 
+
+/* Slideshow Styles */
+.slideshow {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0; /* Ensure no padding */
+    margin: 0;  /* Ensure no margin */
+}
+
+.slides {
+    display: flex;
+    transition: transform 3s ease-in-out;
+    padding: 0; /* Remove padding */
+    margin: 0;  /* Remove margin */
+}
+
+.slides img {
+    width: 100%; /* Each image takes up the full width of the container */
+    height: 100vh; /* Ensure each image takes the full height of the viewport */
+    object-fit: cover; /* Maintain aspect ratio while covering the entire area */
+}
+
+/* Slide Transition */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.slides {
+    animation: slide 15s infinite;
+}
+
+/* About Section Styling */
+#about {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Place text on the left and image on the right */
+    padding: 4rem 2rem; /* Adds padding around the section */
+    color: #333; /* Dark text color for readability */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    margin-bottom: 2rem; /* Space between sections */
+}
+
+#about h1 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    color: #2c3e50; /* Darker color for the heading */
+    margin-bottom: 1rem; /* Space below the heading */
+    font-family: "Space Mono", monospace; /* A modern font family */
+    max-width: 600px; /* Limit the width of the heading */
+}
+
+#about p {
+    font-size: 1.2rem; /* Slightly larger font size for readability */
+    line-height: 1.6; /* Adds spacing between lines of text */
+    color: #555; /* Lighter color for the paragraph text */
+    max-width: 600px; /* Restrict the width of the text */
+}
+
+#about .text-container {
+    display: flex;
+    margin-left: 10dvh;
+    flex-direction: column; /* Stack the title and text vertically */
+    justify-content: center; /* Center the content vertically */
+    max-width: 600px; /* Limit the width of the text */
+}
+
+/* Image Styling */
+#about img {
+    width: 50dvh; /* Fixed width */
+    height: 50dvh; /* Fixed height to make it a square */
+    margin-right: 20dvh;
+    object-fit: cover; /* Ensure the image covers its container without distortion */
+    border-radius: 8px; /* Round the corners of the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to image */
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 4rem 2rem;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+#portfolio h1 {
+    font-family: "Space Mono", monospace; /* A modern font family */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+#portfolio p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
 /* Portfolio Gallery */
 .portfolio-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid for responsive design */
+    gap: 2rem;
+    align-items: start;
 }
 
+/* Portfolio Item */
 .portfolio-item {
-    background: #f1f1f1;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensure content fits within the card */
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add a hover effect */
 }
 
-/* Contact Form */
-form {
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Portfolio Item Image */
+.portfolio-item img {
+    width: 100%; /* Ensure the image fills the width of the card */
+    height: auto; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure images are cropped to fit without distortion */
+}
+
+/* Portfolio Item Text */
+.portfolio-item h2 {
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: #2c3e50;
+}
+
+.portfolio-item p {
+    font-size: 1rem;
+    margin: 0 1rem 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contact Section Styling */
+#contact {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    background-color: inherit;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#contact h2 {
+    font-family: "Space Mono", monospace; /* A modern font family */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+    text-align: center;
+}
+
+#contact form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
-input, textarea, button {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
+    font-family: "Manrope", sans-serif;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
 }
 
 button {
-    background-color: #222;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
     color: #fff;
+    background-color: #007BFF;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #f9a825;
+    background-color: #0056b3;
 }
 
-/* Footer */
-footer {
+/* Footer Styling */
+.site-footer {
     background-color: #222;
     color: #fff;
+    padding: 2rem 0;
     text-align: center;
-    padding: 1rem 0;
+}
+
+.site-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.site-footer .footer-content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #f9a825; /* Highlight color on hover */
+}
+
+/* Social Media Icons Size Adjustment */
+.social-icon i {
+    font-size: 1.5rem;
 }
