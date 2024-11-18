@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;  /* Ensures smooth scroll behavior in modern browsers */
+}
+
 /* Make sure html and body have no margin or padding */
 html, body {
     height: 100%;
@@ -15,7 +19,7 @@ html, body {
 /* Grid Layout for the div */
 div {
     display: grid;
-    min-height: 100vh;
+    min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
 }
 
@@ -25,14 +29,20 @@ body {
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     color: #333;
-    background-color: yellowgreen; /* This will now only cover the body area */
+    background-color: inherit; /* This will now only cover the body area */
 }
 
 /* Header */
 header {
     background-color: #fbfafa;
     color: #141414;
-    padding: 1rem 2rem;
+    padding: 2dvh 4dvw;
+    position: fixed; /* Fix the header to the top */
+    top: 0; /* Ensure it sticks to the top */
+    left: 0;
+    width: 100%; /* Stretch across the full width of the page */
+    z-index: 1000; /* Ensure it appears above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
 }
 
 /* Navbar Styling */
@@ -43,17 +53,18 @@ header nav ul {
     padding: 0;
     align-items: center; /* Center items vertically */
     justify-content: flex-start; /* Align navbar items to the left */
+    gap: 2dvw;
 }
 
 header nav li {
-    margin-right: 2rem; /* Space between items */
+    margin-right: 2dvw; /* Space between items */
 }
 
 /* Logo Styling */
 header nav img {
     width: 15dvh; /* Make the logo bigger based on viewport height */
     height: auto;
-    margin-right: 20px; /* Space between logo and menu items */
+    margin-right: 2dvw; /* Space between logo and menu items */
 }
 
 /* Link Styling */
@@ -61,10 +72,13 @@ header nav a {
     text-decoration: none;
     color: #141414;
     font-weight: bold;
+    font-size: 1rem;  /* Base font size */
+    transition: transform 0.2s ease, color 0.3s ease;  /* Smooth transition for transform and color */
 }
 
 header nav a:hover {
-    color: #f9a825;
+    color: #f9a825;  /* Gold color on hover */
+    transform: scale(1.05);  /* Slightly enlarge the text */
 }
 
 
@@ -75,42 +89,40 @@ main {
 }
 
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 4dvh;
 }
 
 h1, h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 2dvh;
     color: #222;
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5dvh;
 }
 
 
 /* Slideshow Styles */
 .slideshow {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 0; /* Ensure no padding */
-    margin: 0;  /* Ensure no margin */
+    width: 100%; /* Full width of the container */
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Hide any overflow outside the slideshow */
+    position: relative; /* Position for absolute elements inside */
+    margin-bottom: 0%;
 }
 
 .slides {
-    display: flex;
-    transition: transform 3s ease-in-out;
-    padding: 0; /* Remove padding */
-    margin: 0;  /* Remove margin */
+    display: flex; /* Arrange images in a row */
+    transition: transform 1s ease-in-out; /* Smooth sliding effect */
 }
 
 .slides img {
-    width: 100%; /* Each image takes up the full width of the container */
-    height: 100vh; /* Ensure each image takes the full height of the viewport */
-    object-fit: cover; /* Maintain aspect ratio while covering the entire area */
+    width: 100%; /* Image takes full width of container */
+    height: 100%; /* Image takes full height of the container */
+    object-fit: cover; /* Ensure the image covers the space without stretching */
 }
 
-/* Slide Transition */
+/* Slide Transition using Keyframes */
 @keyframes slide {
     0% { transform: translateX(0); }
     33% { transform: translateX(-100%); }
@@ -118,8 +130,9 @@ p {
     100% { transform: translateX(0); }
 }
 
+/* Apply animation to the slides */
 .slides {
-    animation: slide 15s infinite;
+    animation: slide 15s infinite; /* Infinite loop of 15s transition */
 }
 
 /* About Section Styling */
@@ -127,25 +140,25 @@ p {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Vertically align items */
     justify-content: space-between; /* Place text on the left and image on the right */
-    padding: 4rem 2rem; /* Adds padding around the section */
+    padding: 4dvh 2dvh; /* Adds padding around the section */
     color: #333; /* Dark text color for readability */
-    border-radius: 8px; /* Rounded corners for a softer look */
-    margin-bottom: 2rem; /* Space between sections */
+    border-radius: 1dvh; /* Rounded corners for a softer look */
+    gap: 2dvh; /* Space between sections */
 }
 
 #about h1 {
-    font-size: 2.5rem; /* Larger font size for the heading */
+    font-size: 3dvh; /* Larger font size for the heading */
     color: #2c3e50; /* Darker color for the heading */
-    margin-bottom: 1rem; /* Space below the heading */
+    margin-bottom: 1dvh; /* Space below the heading */
     font-family: "Space Mono", monospace; /* A modern font family */
-    max-width: 600px; /* Limit the width of the heading */
+    max-width: 50dvw; /* Limit the width of the heading */
 }
 
 #about p {
-    font-size: 1.2rem; /* Slightly larger font size for readability */
+    font-size: 2dvh; /* Slightly larger font size for readability */
     line-height: 1.6; /* Adds spacing between lines of text */
     color: #555; /* Lighter color for the paragraph text */
-    max-width: 600px; /* Restrict the width of the text */
+    max-width: 50dvw; /* Restrict the width of the text */
 }
 
 #about .text-container {
@@ -162,13 +175,13 @@ p {
     height: 50dvh; /* Fixed height to make it a square */
     margin-right: 20dvh;
     object-fit: cover; /* Ensure the image covers its container without distortion */
-    border-radius: 8px; /* Round the corners of the image */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to image */
+    border-radius: 1dvh; /* Round the corners of the image */
+    box-shadow: 0 0.5dvh 1dvh rgba(0, 0, 0, 0.1); /* Add shadow to image */
 }
 
 /* Portfolio Section */
 #portfolio {
-    padding: 4rem 2rem;
+    padding: 4dvh 2dvw;
     background-color: #f4f4f9;
     color: #333;
     text-align: center;
@@ -176,14 +189,14 @@ p {
 
 #portfolio h1 {
     font-family: "Space Mono", monospace; /* A modern font family */
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3dvh;
+    margin-bottom: 2dvh;
     color: #2c3e50;
 }
 
 #portfolio p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 2dvh;
+    margin-bottom: 4dvh;
     color: #555;
     line-height: 1.6;
 }
@@ -191,25 +204,25 @@ p {
 /* Portfolio Gallery */
 .portfolio-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid for responsive design */
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(25dvw, 1fr)); /* Flexible grid for responsive design */
+    gap: 2dvw;
     align-items: start;
 }
 
 /* Portfolio Item */
 .portfolio-item {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 0.2dvh solid #ddd;
+    border-radius: 1dvh;
+    box-shadow: 0 0.5dvh 1dvh rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     overflow: hidden; /* Ensure content fits within the card */
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s; /* Add a hover effect */
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px); /* Lift the card slightly on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1dvh);
+    box-shadow: 0 1dvh 1.5dvh rgba(0, 0, 0, 0.2);
 }
 
 /* Portfolio Item Image */
@@ -221,40 +234,41 @@ p {
 
 /* Portfolio Item Text */
 .portfolio-item h2 {
-    font-size: 1.5rem;
-    margin: 1rem;
+    font-size: 2dvh; /* Responsive font size based on viewport height */
+    margin: 1dvh; /* Adjusted margin for responsiveness */
     color: #2c3e50;
 }
 
 .portfolio-item p {
-    font-size: 1rem;
-    margin: 0 1rem 1rem;
+    font-size: 1.5dvh; /* Responsive font size based on viewport height */
+    margin: 0 1dvh 1dvh; /* Adjusted margins for consistency */
     color: #666;
     line-height: 1.6;
 }
 
+
 /* Contact Section Styling */
 #contact {
     width: 90%;
-    max-width: 1200px;
+    max-width: 90dvw;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 4dvh 2dvw;
     background-color: inherit;
-    border-radius: 10px;
+    border-radius: 1dvh;
     text-align: left;
 }
 
 #contact h2 {
     font-family: "Space Mono", monospace; /* A modern font family */
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3dvh;
+    margin-bottom: 2dvh;
     color: #2c3e50;
     text-align: center;
 }
 
 #contact p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 2dvh;
+    margin-bottom: 4dvh;
     color: #555;
     text-align: center;
 }
@@ -262,7 +276,7 @@ p {
 #contact form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2dvh;
 }
 
 .form-group {
@@ -272,81 +286,443 @@ p {
 
 .form-group label {
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1dvh; /* Responsive margin */
     color: #333;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 0.8rem;
+    padding: 1dvh; /* Responsive padding */
     border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 0.5dvh; /* Responsive border radius */
+    font-size: 1.5dvh; /* Responsive font size */
     font-family: "Manrope", sans-serif;
-
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #007BFF;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 0.4dvh rgba(0, 123, 255, 0.3); /* Responsive shadow */
 }
 
 button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
+    padding: 1dvh 3dvw; /* Responsive padding */
+    font-size: 1.5dvh; /* Responsive font size */
     font-weight: bold;
     color: #fff;
     background-color: #007BFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5dvh; /* Responsive border radius */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: inherit;
+    min-height: 5dvh;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+
 /* Footer Styling */
 .site-footer {
     background-color: #222;
     color: #fff;
-    padding: 2rem 0;
+    padding: 4dvh 0;
     text-align: center;
 }
 
 .site-footer .footer-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 90dvw;
     margin: 0 auto;
-    padding: 0 1rem;
+    gap: 2dvw;
 }
 
-.site-footer .footer-content p {
+.site-footer p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.5dvh;
+    flex: 1;
+    text-align: center;
+    margin-top: 6dvh;
+}
+
+.site-footer .footer-content .logo {
+    flex: 0 1 20%; /* Logo takes 20% of the width */
+    display: flex;
+    justify-content: center; /* Center the logo */
+    margin-bottom: 0%;
+}
+
+.site-footer .footer-content .logo img {
+    width: 100%; /* Make sure the logo fits the container */
+    max-width: 150px; /* Limit the logo width for large screens */
+    height: auto;
+    fill: white;
 }
 
 .social-media {
     display: flex;
-    gap: 1rem;
+    flex: 1;
+    padding-right: 0;
+    gap: 2dvw;
+    margin-bottom: 0;
+    justify-content: right;
 }
 
 .social-icon {
-    font-size: 1.5rem;
+    font-size: 2dvh;
     color: #fff;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* Add hover effect for the icons */
+.social-icon {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #f9a825; /* Highlight color on hover */
+    transform: scale(1.2);  /* Slightly enlarges and rotates the icon */
+    filter: brightness(1.5);  /* Brightens and adds a blur effect */
 }
 
-/* Social Media Icons Size Adjustment */
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: -1;
+}
+
+.social-icon:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);  /* Creates a glowing border effect */
+}
+
 .social-icon i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover i {
+    transform: rotate(360deg);  /* Spins the icon */
+    color: inherit;  /* Changes icon color to a cool blue */
+}
+
+/* Style for the social media section */
+.social-media-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Style for individual social media icons */
+.dev-icon {
+    margin: 0 10px;
+    font-size: 2dvh;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+/* Add hover effect for the icons */
+.dev-icon:hover {
+    transform: scale(1.2) rotate(15deg);  /* Slightly enlarges and rotates the icon */
+    filter: brightness(1.5) drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));  /* Brightens and adds a shadow */
+    transition: transform 0.3s ease, filter 0.3s ease;  /* Smooth transition for the hover effects */
+}
+
+
+/* Footer Menu */
+.footer-menu {
+    margin-top: 4dvh;
+    display: flex;
+    gap: 3dvw;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-menu a {
+    color: #fff;
+    font-size: 1.8dvh;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #f9a825;
+}
+
+/* Estils generals per al main de la política de privacitat */
+.privacy-policy {
+    padding: 4dvh;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: 'Manrope', sans-serif;
+    color: #333;
+    background-color: transparent;
+    line-height: 1.6;
+    margin-top:5dvh;
+}
+
+.privacy-policy h1 {
+    font-family: "Space Mono", monospace; 
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.privacy-policy h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-policy p {
+    margin-bottom: 1.5rem;
+}
+
+.privacy-policy ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-policy li {
+    margin-bottom: 0.5rem;
+}
+
+.policy-container {
+    background: inherit;
+    padding: 2rem;
+}
+
+.policy-container h2,
+.policy-container p {
+    text-align: justify;
+}
+
+#cookies-banner {
+    font-size: 2dvh; /* Use relative units for font size */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+    z-index: 1000; /* Ensure the banner stays on top */
+    margin: 2dvh; /* Reduced margin for cleaner look */
+    padding: 2dvh;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Light shadow for depth */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2dvh;
+  }
+  
+  .container i {
+    background-color: transparent;
+    font-size: 4vh;
+    color: white;
+  }
+  
+  #allow,
+  #decline {
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px; /* Softer rounded corners */
+    background-color: #1a1a1a;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  #allow:hover,
+  #decline:hover {
+    background-color: #444444; /* Darker shade on hover */
+  }
+  
+  #decline {
+    background-color: #9e1a1a; /* Red background for decline */
+  }
+  
+  #decline:hover {
+    background-color: #bb2d2d; /* Brighter red on hover */
+  }
+  
+  @media (max-width: 800px) {
+    #cookies-banner {
+      width: 100%;
+      margin: 0; /* Remove margin for full width on mobile */
+      border-radius: 0; /* No rounded corners on small screens */
+    }
+  
+    .container {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+  
+    #allow,
+    #decline {
+      width: 100%; /* Full width buttons on mobile */
+      padding: 12px;
+    }
+  }
+  
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    /* General Adjustments for Mobile */
+    body {
+        padding: 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 1dvh; /* Reduce gap for mobile */
+        justify-content: center;
+    }
+
+    header nav img {
+        width: 12dvh; /* Reduce logo size */
+    }
+
+    /* On small screens, adjust the slideshow height to fit better */
+    .slideshow {
+        height: 70vh; /* Adjust height to 70% of the viewport */
+    }
+    
+    .slides img {
+        height: 70vh; /* Adjust height for small screens */
+    }
+
+    #about {
+        flex-direction: column; /* Stack image and text vertically */
+        padding: 1dvh 1.5dvh;
+    }
+    
+    #about .text-container {
+        margin: 0;
+        width: 100%; /* Make full width for mobile */
+        height: auto;
+        align-items: center;
+        text-align: justify;
+    }
+
+    #about .text-container p{
+        max-width: fit-content;
+        padding:1dvh
+    }
+
+    #about img {
+        margin: 0;
+        width: 100%; /* Make full width for mobile */
+        height: auto;
+        text-align: center;
+        border-radius: 0.5dvh; /* Slightly rounded corners */
+    }
+
+    #portfolio {
+        padding: 3dvh 2dvw;
+    }
+
+    #portfolio h1 {
+        font-size: 2.5dvh; /* Smaller heading */
+    }
+
+    #portfolio p {
+        font-size: 1.8dvh; /* Smaller paragraph */
+    }
+
+    .portfolio-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(80%, 1fr)); /* Single-column grid */
+    }
+
+    #contact {
+        padding: 3dvh 2dvw;
+    }
+
+    #contact h2 {
+        font-size: 2.5dvh;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 1.2dvh; /* Smaller input size */
+    }
+
+    button {
+        font-size: 1.2dvh; /* Smaller button size */
+        font-family: inherit;
+        padding: 1dvh;
+        min-height: 5dvh;
+    }
+
+    /* Footer Styling for Mobile */
+.site-footer .footer-content {
+    flex-direction: column;
+    gap: 3dvh;
+    text-align: center;
+}
+
+.site-footer .footer-content p {
+    font-size: 1.5dvh;
+}
+
+.site-footer .footer-content .logo {
+    flex: 0 1 30%; /* Increase the logo size on mobile */
+}
+
+.site-footer .footer-content .logo img {
+    max-width: 120px; /* Adjust logo size on mobile */
+}
+
+.social-media {
+    flex-wrap: wrap;
+    gap: 1.5dvh;
+}
+
+.social-icon {
+    font-size: 1.8dvh;
+}
+
+.footer-menu {
+    gap: 2dvh;
+}
+
+.footer-menu a {
+    font-size: 1.5dvh;
+}
+
+.privacy-policy {
+    padding: 1.5rem;
+}
+.privacy-policy h1 {
+    font-size: 2rem;
+}
+.privacy-policy h2 {
     font-size: 1.5rem;
+}
+
 }

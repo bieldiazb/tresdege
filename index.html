@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Designer Portfolio</title>
-    <!-- Styles -->
+    <title>tresdege</title>
+    <!-- Estils -->
     <link rel="stylesheet" href="css/style.css">
     <!-- JS -->
-    <script src="js/script.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="email.js"></script>
+     <!-- Font Awesome CDN link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Fonts -->
@@ -31,100 +32,128 @@
         <header class="site-header">
             <nav class="navbar">
                 <ul>
-                    <li><img src="images/love.jpg" alt="Avatar Logo" href="#logo"></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">
+                        <img src="images/proves/logob.svg" alt="Logo" class="footer-logo">
+                    </a></li>
+                    <li><a href="#about">Sobre mi</a></li>
+                    <li><a href="#portfolio">Portfoli</a></li>
+                    <li><a href="#contact">Contacte</a></li>
                 </ul>
             </nav>                
         </header>
 
-        <!-- Slideshow Section -->
+        <!-- Secció de Diapositives -->
         <section class="slideshow">
-            <div class="slides">
-                <img src="images/love.jpg" alt="Slide 1">
-                <img src="images/love.jpg" alt="Slide 2">
-                <img src="images/love.jpg" alt="Slide 3">
-            </div>
+            <section class="slides">
+                <img src="images/proves/slide1.jpg" alt="Diapositiva 1">
+                <img src="images/proves/slide2.jpg" alt="Diapositiva 2">
+                <img src="images/proves/slide3.jpg" alt="Diapositiva 3">
+            </section>
         </section>
 
         <main class="content">
             <section id="about" class="about-section">
                 <section class="text-container">
-                    <h1>About Me</h1>
-                    <p>Hi, I'm a graphic designer passionate about creating stunning visuals and designs that captivate audiences. I specialize in crafting unique digital experiences that speak to the soul. With a keen eye for detail and a love for modern trends, I bring creativity and innovation to every project I take on. Whether it's branding, web design, or marketing materials, I thrive on transforming ideas into visually appealing and functional designs that leave a lasting impression. Let’s work together and create something amazing!</p>
+                    <h1>Sobre mi</h1>
+                    <p>Hola, sóc un dissenyador gràfic apassionat per crear dissenys visuals impressionants que captiven el públic. Especialitzat en experiències digitals úniques, porto creativitat i innovació a cada projecte. Tant si es tracta de branding, disseny web o materials de màrqueting, estic preparat per transformar idees en dissenys atractius i funcionals. Treballem junts per crear alguna cosa increïble!</p>
                 </section>
-                <img src="images/love.jpg" alt="designer">
+                <img src="images/proves/designer.jpg" alt="dissenyador">
             </section>
 
             <section id="portfolio" class="portfolio-section">
-                <h1>My Portfolio</h1>
-                <p>Explore a selection of my projects that showcase my creativity and expertise in graphic design.</p>
+                <h1>El meu portfoli</h1>
+                <p>Explora una selecció dels meus projectes que mostren la meva creativitat i experiència en disseny gràfic.</p>
                 <section class="portfolio-gallery">
                     <section class="portfolio-item">
-                        <img src="images/love.jpg" alt="Project 1">
-                        <h2>Brand Identity</h2>
-                        <p>Created a cohesive brand identity for a tech startup, including logo design, typography, and color schemes.</p>
+                        <img src="images/proves/pf1.jpg" alt="Projecte 1">
+                        <h2>Identitat de Marca</h2>
+                        <p>Creació d'una identitat de marca per a una startup tecnològica, incloent el disseny de logotips, tipografia i paletes de colors.</p>
                     </section>
                     <section class="portfolio-item">
-                        <img src="images/love.jpg" alt="Project 2">
-                        <h2>Web Design</h2>
-                        <p>Designed a modern and responsive website for a non-profit organization to increase engagement.</p>
+                        <img src="images/proves/pf2.jpg" alt="Projecte 2">
+                        <h2>Disseny Web</h2>
+                        <p>Disseny d'un lloc web modern i responsive per a una organització sense ànim de lucre.</p>
                     </section>
                     <section class="portfolio-item">
-                        <img src="images/love.jpg" alt="Project 3">
-                        <h2>Marketing Campaign</h2>
-                        <p>Developed visual assets for a social media campaign that achieved a 30% increase in user engagement.</p>
-                    </section>
-                    <section class="portfolio-item">
-                        <img src="images/love.jpg" alt="Project 4">
-                        <h2>Packaging Design</h2>
-                        <p>Designed eco-friendly packaging for a skincare brand, focusing on sustainability and aesthetics.</p>
+                        <img src="images/proves/pf3.jpg" alt="Projecte 3">
+                        <h2>Campanya de Màrqueting</h2>
+                        <p>Desenvolupament d'actius visuals per a una campanya a les xarxes socials que va augmentar l'engagement en un 30%.</p>
                     </section>
                 </section>
             </section>
             
             <section id="contact" class="contact-section">
-                <h2>Contact Me</h2>
-                <p>Feel free to reach out to me for any inquiries or collaboration opportunities. I'd love to hear from you!</p>
+                <h2>Contacta’m</h2>
+                <p>Contacta'm per qualsevol consulta o oportunitat de col·laboració. Estaré encantat de parlar amb tu!</p>
                 <form id="contact-form">
                     <section class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="El teu nom complet" required>
                     </section>
                     <section class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                        <label for="email">Correu electrònic</label>
+                        <input type="email" id="email" name="email" placeholder="La teva adreça de correu" required>
                     </section>
                     <section class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                        <label for="message">Missatge</label>
+                        <textarea id="message" name="message" placeholder="Escriu el teu missatge aquí" required></textarea>
                     </section>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Enviar missatge</button>
                 </form>
             </section>
         </main>
 
+        <section id="cookies-banner">
+            <section class="container">
+                <section class="item">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                </section>
+                <section class="item">
+                    <p>We use third-party cookies in order to personalize your site experience.</p>
+                </section>
+                <section class="item">
+                    <button id="allow">Allow</button>
+                    <button id="decline">Decline</button>
+                </section>
+            </section>
+        </section>
+        
         <footer class="site-footer">
             <section class="footer-content">
-                <p>&copy; 2024 Graphic Designer. All rights reserved.</p>
+                <section class="logo">
+                    <a href="#">
+                        <img src="images/proves/logo.svg" alt="Logo" class="footer-logo">
+                    </a>
+                </section>
+                
                 <section class="social-media">
                     <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-icon facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon twitter">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i> Instagram
                     </a>
                     <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </section>
+            </section>
+            <nav class="footer-menu">
+                <a href="#about">Sobre mi</a>
+                <a href="#portfolio">Portfoli</a>
+                <a href="#contact">Contacte</a>
+                <a href="/privacy-policy.html">Política de privacitat</a>
+            </nav>
+            <section>
+                <p>&copy; 2024 Dissenyador Gràfic. Tots els drets reservats.</p>
+                <section class="social-media-links">
+                    <a href="https://www.instagram.com/bieldiiaz" target="_blank" class="dev-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="dev-icon linkedin">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </section>
             </section>
         </footer>
-        
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
