@@ -185,14 +185,15 @@ p {
 }
 
 #about h1 {
-    font-size: 3dvh; /* Larger font size for the heading */
+    font-size: 5dvh; /* Larger font size for the heading */
     margin-bottom: 1dvh; /* Space below the heading */
-    font-family: "Space Mono", monospace; /* A modern font family */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
     max-width: 50dvw; /* Limit the width of the heading */
 }
 
 #about p {
-    font-size: 2dvh; /* Slightly larger font size for readability */
+    font-size: 2.5dvh; /* Slightly larger font size for readability */
     line-height: 1.6; /* Adds spacing between lines of text */
     max-width: 50dvw; /* Restrict the width of the text */
 }
@@ -223,13 +224,14 @@ p {
 }
 
 #portfolio h1 {
-    font-family: "Space Mono", monospace; /* A modern font family */
-    font-size: 3dvh;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 5dvh;
     margin-bottom: 2dvh;
 }
 
 #portfolio p {
-    font-size: 2dvh;
+    font-size: 2.5dvh;
     margin-bottom: 4dvh;
     line-height: 1.6;
 }
@@ -267,12 +269,12 @@ p {
 
 /* Portfolio Item Text */
 .portfolio-item h2 {
-    font-size: 2dvh; /* Responsive font size based on viewport height */
+    font-size: 3dvh; /* Responsive font size based on viewport height */
     margin: 1dvh; /* Adjusted margin for responsiveness */
 }
 
 .portfolio-item p {
-    font-size: 1.5dvh; /* Responsive font size based on viewport height */
+    font-size: 2.2dvh !important; /* Responsive font size based on viewport height */
     margin: 0 1dvh 1dvh; /* Adjusted margins for consistency */
     line-height: 1.6;
 }
@@ -290,14 +292,15 @@ p {
 }
 
 #contact h2 {
-    font-family: "Space Mono", monospace; /* A modern font family */
-    font-size: 3dvh;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 5dvh;
     margin-bottom: 2dvh;
     text-align: center;
 }
 
 #contact p {
-    font-size: 2dvh;
+    font-size: 2.5dvh;
     margin-bottom: 4dvh;
     text-align: center;
 }
@@ -317,6 +320,7 @@ p {
     font-weight: bold;
     margin-bottom: 1dvh; /* Responsive margin */
     color:var(--terciary);
+    font-size: 2.5dvh;
 }
 
 .form-group input,
@@ -324,7 +328,7 @@ p {
     padding: 1dvh; /* Responsive padding */
     border: 1px solid #ddd;
     border-radius: 0.5dvh; /* Responsive border radius */
-    font-size: 1.5dvh; /* Responsive font size */
+    font-size: 2dvh; /* Responsive font size */
     font-family: "Manrope", sans-serif;
 }
 
@@ -488,7 +492,7 @@ button:hover {
 
 .footer-menu a {
     color: var(--primary);
-    font-size: 1.8dvh;
+    font-size: 2dvh;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -510,8 +514,9 @@ button:hover {
 }
 
 .privacy-policy h1 {
-    font-family: "Space Mono", monospace; 
-    font-size: 2.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 5dvh;
     color: var(--heading);
     margin-bottom: 1rem;
     text-align: center;
@@ -550,79 +555,7 @@ button:hover {
     text-align: justify;
 }
 
-#cookies-banner {
-    font-size: 2dvh; /* Use relative units for font size */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
-    z-index: 1000; /* Ensure the banner stays on top */
-    margin: 2dvh; /* Reduced margin for cleaner look */
-    padding: 2dvh;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Light shadow for depth */
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2dvh;
-  }
-  
-  .container i {
-    background-color: transparent;
-    font-size: 4vh;
-    color: white;
-  }
-  
-  #allow,
-  #decline {
-    padding: 10px 15px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 25px; /* Softer rounded corners */
-    background-color: var(--dark-grey);
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-  
-  #allow:hover,
-  #decline:hover {
-    background-color: var(--dark-grey); /* Darker shade on hover */
-  }
-  
-  #decline {
-    background-color: var(--light-blue); /* Red background for decline */
-  }
-  
-  #decline:hover {
-    background-color: #5b9bbe; /* Brighter red on hover */
-  }
-  
-  @media (max-width: 800px) {
-    #cookies-banner {
-      width: 100%;
-      margin: 0; /* Remove margin for full width on mobile */
-      border-radius: 0; /* No rounded corners on small screens */
-    }
-  
-    .container {
-      flex-direction: column;
-      gap: 10px;
-      text-align: center;
-    }
-  
-    #allow,
-    #decline {
-      width: 100%; /* Full width buttons on mobile */
-      padding: 12px;
-    }
-  }
-  
+
 
 /* MOBILE STYLES */
 @media (max-width: 768px) {
