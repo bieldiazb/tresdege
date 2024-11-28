@@ -1,22 +1,56 @@
-let acceptDecline = localStorage.getItem("cookie") ? JSON.parse(localStorage.getItem("cookie")) : "";
-const cookiesBanner = document.querySelector("#cookies-banner")
-
-//localStorage.clear()
-
-document.querySelector("#allow").addEventListener("click", () => {
-  setCookie()
-})
-
-document.querySelector("#decline").addEventListener("click", () => {
-  setCookie()
-})
-
-function setCookie(){
-  acceptDecline = true
-  localStorage.setItem("cookie", JSON.stringify(acceptDecline))
-  cookiesBanner.style.display = "none"
+// =======================================
+// ||                                   ||   
+// ||             COOKIES               || 
+// ||                                   || 
+// =======================================
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-if(acceptDecline){
-  cookiesBanner.style.display = "none"
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+
+// =======================================
+// ||                                   ||   
+// ||            DARK MODE              || 
+// ||                                   || 
+// =======================================
+
+var icon = document.getElementById("icon");
+icon.onclick=function(){
+  document.body.classList.toggle("dark-theme");
+  if(document.body.classList.contains("dark-theme")){
+    icon.src ="icons/sun.png";
+  }else{
+    icon.src = "icons/moon.png";
+  }
+
 }
