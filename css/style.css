@@ -13,7 +13,11 @@
     --terciary: #1D1D1B;
     --heading:#242424;
     --text:#383838;
+    --hover-header:#383838;
     --shadow:29,29,27;
+    --header:#6FB9E1;
+    --logo-color:#f8f8f8;
+    --footer:#1D1D1B;
 }
 
 .dark-theme{
@@ -23,7 +27,11 @@
     --terciary: #f8f8f8;
     --heading:#d6d6d6;
     --text:#bdbdbd;
+    --hover-header:#6FB9E1;
     --shadow:248,248,248;
+    --header:#1D1D1B;
+    --logo-color:#f8f8f8;
+    --footer:linear-gradient( #1D1D1B, #6FB9E1);
 }
 
 /*
@@ -66,7 +74,7 @@ body {
 
 /* Header */
 header {
-    background-color: var(--primary);
+    background-color: var(--header);
     color: var(--terciary);
     padding: 2dvh 4dvw;
     position: fixed; /* Fix the header to the top */
@@ -103,7 +111,7 @@ header nav li {
 .header-logo{
     width:30dvh; /* Make the logo bigger based on viewport height */
     height: auto;
-    fill: var(--terciary);
+    fill: var(--logo-color);
     margin-right: 2dvw; /* Space between logo and menu items */
 
 }
@@ -111,14 +119,14 @@ header nav li {
 /* Link Styling */
 header nav a {
     text-decoration: none;
-    color: var(--terciary);
+    color: var(--logo-color);
     font-weight: bold;
     font-size: 1rem;  /* Base font size */
     transition: transform 0.2s ease, color 0.3s ease;  /* Smooth transition for transform and color */
 }
 
 header nav a:hover {
-    color: var(--light-blue);  /* Gold color on hover */
+    color: var(--hover-header);  /* Gold color on hover */
     transform: scale(1.05);  /* Slightly enlarge the text */
 }
 
@@ -128,7 +136,9 @@ header nav a:hover {
     cursor: pointer;
     margin-left: auto; /* Push the icon to the far right */
     padding: 0;
+    fill: var(--logo-color);
 }
+
 
 
 /* Main Content */
@@ -372,7 +382,7 @@ button:hover {
 
 /* Footer Styling */
 .site-footer {
-    background-color: var(--terciary);
+    background: var(--footer);
     padding: 4dvh 0;
     text-align: center;
 }
@@ -386,6 +396,8 @@ button:hover {
     max-width: 90dvw;
     margin: 0 auto;
     gap: 2dvw;
+    margin-top:2dvh;
+
 }
 
 .site-footer p {
@@ -394,7 +406,7 @@ button:hover {
     flex: 1;
     text-align: center;
     margin-top: 6dvh;
-    color:var(--primary);
+    color:var(--text);
 }
 
 .site-footer .footer-content .logo {
@@ -408,7 +420,7 @@ button:hover {
     width: 100%; /* Make sure the logo fits the container */
     max-width: 35vh; /* Limit the logo width for large screens */
     height: auto;
-    fill: var(--primary);
+    fill: var(--logo-color);
 }
 
 .social-media {
@@ -423,7 +435,7 @@ button:hover {
 
 .social-icon {
     font-size: 2dvh;
-    color: var(--primary);
+    color: var(--logo-color);
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
@@ -482,7 +494,7 @@ button:hover {
     margin: 0 10px;
     font-size: 2dvh;
     transition: transform 0.3s ease;
-    color:var(--primary);
+    color:var(--logo-color);
 }
 
 /* Add hover effect for the icons */
@@ -503,7 +515,7 @@ button:hover {
 }
 
 .footer-menu a {
-    color: var(--primary);
+    color: var(--logo-color);
     font-size: 2dvh;
     font-weight: bold;
     text-decoration: none;
@@ -511,7 +523,7 @@ button:hover {
 }
 
 .footer-menu a:hover {
-    color: var(--light-blue);
+    color: var(--hover-header);
 }
 
 /* Estils generals per al main de la política de privacitat */

@@ -98,12 +98,41 @@ document.addEventListener("DOMContentLoaded", checkCookie);
 // ║ Dark Mode ║ 
 // ╚═══════════╝
 var icon = document.getElementById("icon");
+// Funció per canviar el tema manualment
 icon.onclick=function(){
   document.body.classList.toggle("dark-theme");
-  if(document.body.classList.contains("dark-theme")){
-    icon.src ="icons/sun.png";
-  }else{
-    icon.src = "icons/moon.png";
-  }
 
+  // Canviem l'icona segons el tema
+  if(document.body.classList.contains("dark-theme")){
+    icon.src ="icons/sun.svg";
+    localStorage.setItem("theme", "dark"); // Guardem la preferència en el localStorage
+  }else{
+    icon.src = "icons/moon.svg";
+    localStorage.setItem("theme", "light"); // Guardem la preferència en el localStorag
+  }
+};
+
+// Detectem el tema per defecte de l'usuari (sistema operatiu)
+function detectTheme() {
+  // Si l'usuari ha establert una preferència de tema en el localStorage, la respectem
+  let savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    icon.src = "icons/sun.svg";
+  } else if (savedTheme === "light") {
+    document.body.classList.remove("dark-theme");
+    icon.src = "icons/moon.svg";
+  } else {
+    // Si no s'ha guardat res, detectem el tema per defecte del sistema
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark-theme");
+      icon.src = "icons/sun.svg";
+    } else {
+      document.body.classList.remove("dark-theme");
+      icon.src = "icons/moon.svg";
+    }
+  }
 }
+
+// Cridem la funció per detectar el tema quan es carrega la pàgina
+window.onload = detectTheme;
