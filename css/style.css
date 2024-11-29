@@ -1,3 +1,11 @@
+/*
+ ┌─┐┌─┐┌─┐ 
+ │  └─┐└─┐ 
+ └─┘└─┘└─┘ 
+ ╔════════╗ 
+ ║ Colors ║ 
+ ╚════════╝ 
+*/
 :root {
     --light-blue: #6FB9E1;
     --primary: #f8f8f8; /* Close to a soft off-white color */
@@ -18,6 +26,10 @@
     --shadow:248,248,248;
 }
 
+/*
+ ╔════════════════════════╗ 
+ ║ General Styles Section ║ 
+ ╚════════════════════════╝ 
 /* General Reset */
 * {
     margin: 0;
@@ -555,9 +567,11 @@ button:hover {
     text-align: justify;
 }
 
-
-
-/* MOBILE STYLES */
+/*
+ ╔═══════════════════════╗ 
+ ║ Mobile Styles Section ║ 
+ ╚═══════════════════════╝ 
+*/
 @media (max-width: 768px) {
     /* General Adjustments for Mobile */
     body {
@@ -598,6 +612,15 @@ button:hover {
         flex-direction: column; /* Stack image and text vertically */
         padding: 1dvh 1.5dvh;
     }
+
+    #about h1{
+        margin-top: 2dvh;
+        font-size: 3.5dvh;
+    }
+
+    #about p{
+        font-size: 2dvh;
+    }
     
     #about .text-container {
         margin: 0;
@@ -625,15 +648,34 @@ button:hover {
     }
 
     #portfolio h1 {
-        font-size: 2.5dvh; /* Smaller heading */
+        font-size: 3.5dvh; /* Smaller heading */
     }
 
     #portfolio p {
-        font-size: 1.8dvh; /* Smaller paragraph */
+        font-size: 2dvh; /* Smaller paragraph */
     }
 
     .portfolio-gallery {
         grid-template-columns: repeat(auto-fit, minmax(80%, 1fr)); /* Single-column grid */
+    }
+
+    /* Portfolio Item Image */
+    .portfolio-item img {
+        width: 100%; /* Ensure the image fills the width of the card */
+        height: auto; /* Fixed height for consistency */
+        object-fit: cover; /* Ensure images are cropped to fit without distortion */
+    }
+
+    /* Portfolio Item Text */
+    .portfolio-item h2 {
+        font-size: 2.5dvh; /* Responsive font size based on viewport height */
+        margin: 1dvh; /* Adjusted margin for responsiveness */
+    }
+
+    .portfolio-item p {
+        font-size: 1.8dvh !important; /* Responsive font size based on viewport height */
+        margin: 0 1dvh 1dvh; /* Adjusted margins for consistency */
+        line-height: 1.6;
     }
 
     #contact {
@@ -641,7 +683,11 @@ button:hover {
     }
 
     #contact h2 {
-        font-size: 2.5dvh;
+        font-size: 3dvh;
+    }
+
+    #contact p {
+        font-size: 2dvh;
     }
 
     .form-group input,

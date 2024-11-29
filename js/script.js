@@ -1,8 +1,9 @@
-// =======================================
-// ||                                   ||   
-// ||             COOKIES               || 
-// ||                                   || 
-// =======================================
+//  ┬┌─┐
+//  │└─┐
+// └┘└─┘
+// ╔═════════╗ 
+// ║ Cookies ║ 
+// ╚═════════╝
 // Function to set a cookie
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -93,12 +94,9 @@ function showCookieConsent() {
 document.addEventListener("DOMContentLoaded", checkCookie);
 
 
-// =======================================
-// ||                                   ||   
-// ||            DARK MODE              || 
-// ||                                   || 
-// =======================================
-
+// ╔═══════════╗ 
+// ║ Dark Mode ║ 
+// ╚═══════════╝
 var icon = document.getElementById("icon");
 icon.onclick=function(){
   document.body.classList.toggle("dark-theme");
