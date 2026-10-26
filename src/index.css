@@ -1,0 +1,106 @@
+@import "@fontsource-variable/dm-sans/index.css";
+@import "@fontsource-variable/outfit/index.css";
+
+/* Helvetica Neue LT Std Black: cal llicència web de Monotype per servir-la */
+@font-face {
+  font-family: "CustomDisplay";
+  src: url("/src/assets/fonts/HelveticaNeueLTStd-Blk.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    /* Abans 45%: el text secundari quedava a 4,7:1. Ara ~7:1 */
+    --muted-foreground: 0 0% 32%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 209 100% 50%;
+    --radius: 0.75rem;
+    --tresdege: 209 100% 50%;
+
+    /* Corbes d'Emil Kowalski */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  * { @apply border-border; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: hsl(var(--foreground) / 0.25) transparent;
+  }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+  body {
+    @apply bg-background text-foreground font-text antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: #0084ff; color: #fff; }
+  input, textarea { caret-color: #0084ff; }
+  :focus-visible { outline: 2px solid #0084ff; outline-offset: 3px; border-radius: 4px; }
+  a { text-underline-offset: 4px; }
+  h1, h2, h3 { text-wrap: balance; }
+}
+
+/* Amaga scrollbars però manté el scroll funcional */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* El cursor propi només amaga el del sistema quan és actiu (ratolí); el teclat el recupera */
+html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [role="button"] { cursor: none; }
+
+.skip-link {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link:focus {
+  left: 1rem; top: 1rem; z-index: 10000; width: auto; height: auto; clip-path: none;
+  background: hsl(var(--foreground)); color: hsl(var(--background)); padding: 0.75rem 1rem; border-radius: 9999px;
+}
+
+/* Cortina d'entrada: mai sense JS, mai dues vegades, i fora als 2,5 s passi el que passi */
+html:not(.js) .loader, html.seen .loader { display: none; }
+.loader { animation: loader-safety 0s 2.5s forwards; }
+@keyframes loader-safety { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .loader { display: none; } }
+
+/* Hero: cada lletra puja dins la seva màscara. Només amb JS i sense reduced motion; si no, quietes */
+.hero-mask { display: inline-block; overflow: clip; padding-block: 0.12em; margin-block: -0.12em; vertical-align: top; }
+.hero-letter { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-letter { animation: letter-up 1000ms var(--ease-out) both; animation-delay: calc(480ms + var(--i) * 45ms); }
+  .js.seen .hero-letter { animation-delay: calc(80ms + var(--i) * 35ms); }
+}
+@keyframes letter-up { from { transform: translateY(110%) rotate(6deg); } }
+
+/* Botons: resposta en prémer (Emil: 0.97, 160ms ease-out) */
+.press { transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease, opacity 200ms ease; }
+.press:active { transform: scale(0.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
