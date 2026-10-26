@@ -2,6 +2,23 @@
 <html lang="ca">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) amb Consent Mode v2: tot denegat fins que l'usuari accepta al bàner (src/consent.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      var tdConsent = null;
+      try { tdConsent = JSON.parse(localStorage.getItem("td-cookie-consent")); } catch (e) {}
+      gtag("consent", "default", {
+        analytics_storage: tdConsent && tdConsent.analytics === true ? "granted" : "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500
+      });
+      gtag("js", new Date());
+      gtag("config", "G-KDYWXVXHGS");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDYWXVXHGS"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Política de cookies – TRESDEGÉ</title>
     <meta name="description" content="Política de cookies de TRESDEGÉ: cookies tècniques i Google Analytics només amb el teu consentiment." />
@@ -30,7 +47,8 @@
           <li><strong>_ga</strong> (Google Analytics, de tercers): distingeix visitants de manera anònima. Durada: 2 anys.</li>
           <li><strong>_ga_KDYWXVXHGS</strong> (Google Analytics, de tercers): manté l'estat de la sessió. Durada: 2 anys.</li>
         </ul>
-        <p>Google Analytics 4 l'ofereix Google Ireland Limited i ens diu quantes persones visiten el web, des d'on arriben i quines pàgines miren, de manera agregada. No fem servir cookies de publicitat ni de seguiment publicitari, i els senyals publicitaris de Google estan desactivats. Fins que no acceptes, Google Analytics no es carrega.</p>
+        <p>Google Analytics 4 l'ofereix Google Ireland Limited i ens diu quantes persones visiten el web, des d'on arriben i quines pàgines miren, de manera agregada. No fem servir cookies de publicitat ni de seguiment publicitari, i els senyals publicitaris de Google estan desactivats.</p>
+        <p>Fem servir el <strong>mode de consentiment de Google</strong>: fins que no acceptes, Google Analytics no instal·la ni llegeix cap cookie, i només rep senyals anònims sense identificadors (que s'ha visitat una pàgina), que Google fa servir per a estadístiques agregades i modelitzades.</p>
         <h2>3. Com acceptar, rebutjar o canviar d'opinió</h2>
         <p>La primera vegada que entres et preguntem si acceptes les cookies d'analítica. Pots canviar la teva elecció quan vulguis amb l'enllaç <button type="button" data-cookie-settings class="underline">Configura les cookies</button>, que trobaràs també al peu de totes les pàgines. Si les rebutges després d'haver-les acceptat, les esborrem del teu navegador. També les pots eliminar des de la configuració del navegador.</p>
         <h2>4. Enllaços externs</h2>

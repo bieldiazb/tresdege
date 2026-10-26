@@ -1,8 +1,7 @@
-// Consentiment de cookies + Google Analytics 4 (mode bàsic: GA4 no es carrega fins que s'accepta).
+// Consentiment de cookies per a Google Analytics 4 (Consent Mode v2: sense cookies fins que s'accepta).
 // La mateixa peça serveix a la home (main.jsx) i a les pàgines legals (legal.js).
 // Qualsevol element amb [data-cookie-settings] torna a obrir el bàner.
 
-const GA_ID = "G-KDYWXVXHGS"
 const KEY = "td-cookie-consent" // "granted" | "denied" (dada tècnica, exempta de consentiment)
 const VERSION = 1 // puja-ho si canvien les cookies i cal tornar a preguntar
 
@@ -21,31 +20,21 @@ function save(analytics) {
   } catch { /* sense storage: es tornarà a preguntar */ }
 }
 
-let loaded = false
-function loadAnalytics() {
-  window[`ga-disable-${GA_ID}`] = false
-  if (loaded) return
-  loaded = true
+// L'etiqueta gtag.js ja és a l'HTML (Consent Mode v2, tot denegat per defecte): aquí només s'actualitza el consentiment
+// gtag.js només processa l'objecte arguments, no arrays: fem servir la funció de l'HTML
+function gtag() {
+  if (window.gtag) return window.gtag.apply(null, arguments)
   window.dataLayer = window.dataLayer || []
-  window.gtag = function gtag() { window.dataLayer.push(arguments) }
-  window.gtag("consent", "default", {
-    analytics_storage: "granted",
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  })
-  window.gtag("js", new Date())
-  window.gtag("config", GA_ID)
-  const s = document.createElement("script")
-  s.async = true
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-  document.head.appendChild(s)
+  window.dataLayer.push(arguments)
 }
 
-// Retirar el consentiment: atura GA4 i esborra les seves cookies (_ga, _ga_XXXX) de tots els dominis possibles
-function stopAnalytics() {
-  window[`ga-disable-${GA_ID}`] = true
-  window.gtag?.("consent", "update", { analytics_storage: "denied" })
+function grantAnalytics() {
+  gtag("consent", "update", { analytics_storage: "granted" })
+}
+
+// Retirar el consentiment: torna a denegar i esborra les cookies de GA (_ga, _ga_XXXX) de tots els dominis possibles
+function denyAnalytics() {
+  gtag("consent", "update", { analytics_storage: "denied" })
   const host = location.hostname
   const domains = ["", host, `.${host}`, `.${host.replace(/^www\./, "")}`]
   for (const c of document.cookie.split(";")) {
@@ -113,14 +102,18 @@ function hideBanner() {
 function decide(analytics) {
   save(analytics)
   hideBanner()
-  if (analytics) loadAnalytics()
-  else stopAnalytics()
+  if (analytics) grantAnalytics()
+  else denyAnalytics()
 }
 
 export function initConsent() {
   const choice = read()
-  if (choice === true) loadAnalytics()
-  else if (choice === null) showBanner()
+  if (choice === null) {
+    // A la primera visita, el bàner espera que acabi l'entrada del hero (no surt dins el cercle)
+    const intro = document.querySelector(".loader") && !document.documentElement.classList.contains("seen")
+      && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    setTimeout(showBanner, intro ? 1300 : 0)
+  }
 
   // «Configura les cookies» des de qualsevol enllaç o botó amb data-cookie-settings
   document.addEventListener("click", (e) => {

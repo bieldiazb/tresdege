@@ -81,17 +81,30 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [rol
   background: hsl(var(--foreground)); color: hsl(var(--background)); padding: 0.75rem 1rem; border-radius: 9999px;
 }
 
-/* Cortina d'entrada: mai sense JS, mai dues vegades, i fora als 2,5 s passi el que passi */
+/* Entrada: capa blau marí (el fons del hero) amb un cercle que s'obre des del centre i revela el degradat.
+   Mai sense JS, mai dues vegades a la sessió, i sempre fora abans d'1,5 s */
+@property --hole {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+.loader {
+  position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  background: #12063b;
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, transparent var(--hole), #000 calc(var(--hole) + 1px));
+          mask-image: radial-gradient(circle at 50% 46%, transparent var(--hole), #000 calc(var(--hole) + 1px));
+  animation: loader-open 1000ms var(--ease-in-out) 120ms forwards;
+}
+/* 101%: el radi es compta fins a la cantonada més llunyana; sense @property la capa desapareix al final */
+@keyframes loader-open { to { --hole: 101%; visibility: hidden; } }
 html:not(.js) .loader, html.seen .loader { display: none; }
-.loader { animation: loader-safety 0s 2.5s forwards; }
-@keyframes loader-safety { to { visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) { .loader { display: none; } }
 
 /* Hero: cada lletra puja dins la seva màscara. Només amb JS i sense reduced motion; si no, quietes */
 .hero-mask { display: inline-block; overflow: clip; padding-block: 0.12em; margin-block: -0.12em; vertical-align: top; }
 .hero-letter { display: inline-block; }
 @media (prefers-reduced-motion: no-preference) {
-  .js .hero-letter { animation: letter-up 1000ms var(--ease-out) both; animation-delay: calc(480ms + var(--i) * 45ms); }
+  .js .hero-letter { animation: letter-up 1000ms var(--ease-out) both; animation-delay: calc(380ms + var(--i) * 45ms); }
   .js.seen .hero-letter { animation-delay: calc(80ms + var(--i) * 35ms); }
 }
 @keyframes letter-up { from { transform: translateY(110%) rotate(6deg); } }

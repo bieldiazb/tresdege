@@ -2,6 +2,23 @@
 <html lang="ca">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) amb Consent Mode v2: tot denegat fins que l'usuari accepta al bàner (src/consent.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      var tdConsent = null;
+      try { tdConsent = JSON.parse(localStorage.getItem("td-cookie-consent")); } catch (e) {}
+      gtag("consent", "default", {
+        analytics_storage: tdConsent && tdConsent.analytics === true ? "granted" : "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500
+      });
+      gtag("js", new Date());
+      gtag("config", "G-KDYWXVXHGS");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDYWXVXHGS"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Política de privacitat – TRESDEGÉ</title>
     <meta name="description" content="Política de privacitat de TRESDEGÉ: com es tracten les dades del formulari de contacte." />
@@ -31,7 +48,7 @@
           <li><strong>Formulari de contacte:</strong> nom, adreça de correu electrònic i el contingut del missatge.</li>
           <li><strong>Correu electrònic directe:</strong> les dades que hi incloguis si escrius a hola@tresdege.com.</li>
           <li><strong>Dades tècniques de navegació:</strong> l'adreça IP i el tipus de navegador, que rep el proveïdor d'allotjament quan es carrega la pàgina.</li>
-          <li><strong>Dades d'analítica (només amb el teu consentiment):</strong> identificador de la cookie de Google Analytics, pàgines visitades, durada de la visita, tipus de dispositiu i ubicació aproximada (país o ciutat). Google Analytics 4 no desa l'adreça IP completa.</li>
+          <li><strong>Dades d'analítica (només amb el teu consentiment):</strong> identificador de la cookie de Google Analytics, pàgines visitades, durada de la visita, tipus de dispositiu i ubicació aproximada (país o ciutat). Google Analytics 4 no desa l'adreça IP completa. Si no acceptes, no s'instal·len cookies i Google només rep senyals anònims sense identificadors.</li>
         </ul>
         <h2>3. Finalitat i base legal</h2>
         <ul>
